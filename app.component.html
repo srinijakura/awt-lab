@@ -1,0 +1,54 @@
+<p>{{title}}</p>
+
+<div>
+  <label>empid</label>
+  <input type="text" name = "empid" [(ngModel)]="empid">
+</div>
+
+<div>
+  <label>empname</label>
+  <input type="text" name = "empname" [(ngModel)]="empname">
+</div>
+
+<div>
+  <label>empsalary</label>
+  <input type="text" name = "salary" [value]="salary">
+</div>
+
+<div>
+  <button (click) = "updatevalues()">change</button>
+</div>
+
+{{empname}}
+
+
+<form #myForm="ngForm" (submit)="formSubmit(myForm)">
+  <label>empid</label>
+  <input type="text" name = "empid" ngModel><br>
+  <label>empname</label>
+  <input type="text" name = "empname" ngModel><br>
+  <label>empsalary</label>
+  <input type="text" name = "salary" ngModel><br>
+  <button type = "submit">Add</button>
+</form>
+
+
+
+<button (click) = "fetchEmps()">Fetch</button>
+<table border="1">
+  <thead>
+    <tr>
+    <th>empid</th>
+    <th>empname</th>
+    <th>empsalary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let emp of emps">
+      <td>{{emp.empid}}</td>
+      <td>{{emp.empname}}</td>
+      <td>{{emp.salary}}</td>
+      <td button (click) = "deleteEmps(emp.empid)">Delete</td> 
+    </tr> 
+  </tbody>
+</table>   
